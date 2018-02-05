@@ -8,12 +8,16 @@ m = size(X, 1); % Number of training example
 
 p = zeros(m, 1);
 
-for it = 1:m
-  if (sigmoid(X(it,:) * theta) >= 0.5)
-    p(it) = 1;
-  else
-    p(it) = 0;
-  end
-end
+%for it = 1:m
+%  if (sigmoid(X(it,:) * theta) >= 0.5)
+%    p(it) = 1;
+%  else
+%    p(it) = 0;
+%  end
+%end
+
+% shorter code than above
+p = sigmoid(X * theta);
+p = p >= 0.5;
 
 end

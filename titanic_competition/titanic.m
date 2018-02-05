@@ -8,6 +8,17 @@ X = data(:, [2,3,4,5,6,7]); y = data(:,1);
 % no. of training examples & features
 [m, n] = size(X);
 
+% process non-feature (e.g. feature with value = 0)
+for i = 1 : n 
+  sum = 0;
+  for j = 1 : m
+    if (X(j,i) == 0)
+      X(j, i) = sum / j;
+    endif 
+    sum += X(j,i);
+  endfor
+endfor
+
 % add intercept term to x
 X = [ones(m,1) X];
 
